@@ -8,12 +8,21 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </head>
+<div id="display"></div>
 <body>
+
     <script>
         axios.get('https://flask-class-1.onrender.com/students').then(res => {
             console.log(res.data);
             res.data.map(student => console.log(`student is: ${student.name}`))
+
+            // new code
+            resultHTML = res.data.map(student => `<h1>${student.id} ${student.name}</h1>`).join('')
+            display.innerHTML = resultHTML
+
         })
+
+            
     </script>
 </body>
 </html>
